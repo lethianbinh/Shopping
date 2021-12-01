@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import {createStore} from 'redux';
 import appResducers from './reducers/index';
 import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 
 const store = createStore(
   appResducers,
@@ -12,10 +13,12 @@ const store = createStore(
 );
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root')
+<BrowserRouter>
+<Provider store={store}>
+  <App />
+</Provider>,
+</BrowserRouter>,
+document.getElementById('root')
 );
 
 reportWebVitals();

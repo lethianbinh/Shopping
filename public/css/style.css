@@ -1,1 +1,8 @@
 /* YOUR CUSTOM STYLES */
+li.nav-item:hover {
+    background-color: rgba(136, 136, 136, 0.432);
+}
+
+li.nav-item {
+    padding: 2px 17px;
+}

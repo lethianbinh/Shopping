@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const showTotalAmount = (cart) => {
   var total = 0;
@@ -17,10 +18,9 @@ function Header() {
   return (
     /* eslint-disable jsx-a11y/anchor-is-valid */
     <header>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <a className="navbar-brand" href={null}>
-          Navbar
-        </a>
+      <nav className=" navbar navbar-expand-lg navbar-light bg-light fixed-top scrolling-navbar">
+        {/* navbar fixed-top navbar-toggleable-md navbar-expand-lg navbar-light bg-light scrolling-navbar double-nav */}
+
         <button
           className="navbar-toggler"
           type="button"
@@ -34,43 +34,28 @@ function Header() {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
-            <li className="nav-item active">
-              <a className="nav-link" href={null}>
+            <li className="nav-item" style={{backgroundColor:'#CEE5D0'} }>
+              {/* <a className="nav-link" href={null}>
                 Home <span className="sr-only">(current)</span>
-              </a>
+              </a> */}
+              <Link to={'/'} className="nav-link">Home</Link>
+            </li>
+
+            <li className="nav-item">
+              <Link to={'/product'} className="nav-link" >
+                Product
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href={null}>
-                Link
-              </a>
-            </li>
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                href={null}
-                id="navbarDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Dropdown
-              </a>
-              <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a className="dropdown-item" href={null}>
-                  Action
-                </a>
-                <a className="dropdown-item" href={null}>
-                  Another action
-                </a>
-                <div className="dropdown-divider" />
-                <a className="dropdown-item" href={null}>
-                  Something else here
-                </a>
-              </div>
+              <Link to={'/cart'} className="nav-link" >
+                Cart
+              </Link>
             </li>
           </ul>
-          <div style={{ color: "black" }}>{showTotalAmount(cart)}</div>
+          <div style={{ color: "black", fontWeight: 'bolder', fontSize: "20px" }}>Tổng tiền: {showTotalAmount(cart)}</div>
+          <div> <Link to={'/cart'} className="nav-link" >
+                 <i className="fa fa-shopping-cart"></i>
+              </Link></div>
         </div>
       </nav>
     </header>
