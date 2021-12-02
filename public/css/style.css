@@ -4,5 +4,36 @@ li.nav-item:hover {
 }
 
 li.nav-item {
-    padding: 2px 17px;
+    padding: 4px 19px;
+}
+
+span.quantity {
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    border-radius: 3px;
+    padding: 3px;
+    margin: 1px;
+    font-size: 10px;
+    display: inline;
+    top: 0px;
+    position: absolute;
+    width: 15px;
+    text-align: center;
+}
+
+.text-uppercase {
+    font-weight: bold;
+}
+
+div.about {
+    border: 2px solid black;
+    border-radius: 10px;
+    margin-bottom: 150px;
+}
+
+div.about p,
+h1 {
+    padding: 10px 30px;
+
 }

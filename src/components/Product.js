@@ -2,13 +2,13 @@ import React from "react";
 import * as Message from "../constants/Message";
 
 function Product(props) {
-  const { product, onAddToCart, onChangeMessage } = props;
+  const { product, onAddToCart, onChangeMessage} = props;
 
   const addToCart = (product) => {
     onAddToCart(product);
     onChangeMessage(Message.MSG_ADD_TO_CART_SUCCESS);
+    alert("Đã thêm vào giỏ hàng")
   };
-
   const showRatings = (rating) => {
     var result = [];
     for (var i = 1; i <= rating; i++) {
@@ -38,7 +38,7 @@ function Product(props) {
           </ul>
           <p className="card-text">{product.description}</p>
           <div className="card-footer">
-            <span className="left">{product.price}$</span>
+            <span className="left" style={{color: 'red', fontSize: '25px', fontWeight: 'bolder'}}>{product.price}$</span>
             <span className="right">
               <a
                 className="btn-floating blue-gradient"
@@ -47,6 +47,7 @@ function Product(props) {
                 href={null}
                 data-original-title="Add to Cart"
                 onClick={() => addToCart(product)}
+                id = 'buy'
               >
                 <i className="fa fa-shopping-cart"></i>
               </a>

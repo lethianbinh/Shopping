@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-
+import { showTotalAmountQuantity } from "./CartResult";
 const showTotalAmount = (cart) => {
   var total = 0;
   if (cart.length > 0) {
@@ -11,7 +11,6 @@ const showTotalAmount = (cart) => {
   }
   return total;
 };
-
 function Header() {
   const cart = useSelector((state) => state.cart);
 
@@ -38,12 +37,12 @@ function Header() {
               {/* <a className="nav-link" href={null}>
                 Home <span className="sr-only">(current)</span>
               </a> */}
-              <Link to={'/'} className="nav-link">Home</Link>
+              <Link to={'/about'} className="nav-link">About</Link>
             </li>
 
             <li className="nav-item">
-              <Link to={'/product'} className="nav-link" >
-                Product
+              <Link to={'/'} className="nav-link" >
+                <i class="bi bi-house-door-fill"></i>Home
               </Link>
             </li>
             <li className="nav-item">
@@ -52,10 +51,12 @@ function Header() {
               </Link>
             </li>
           </ul>
-          <div style={{ color: "black", fontWeight: 'bolder', fontSize: "20px" }}>Tổng tiền: {showTotalAmount(cart)}</div>
-          <div> <Link to={'/cart'} className="nav-link" >
-                 <i className="fa fa-shopping-cart"></i>
-              </Link></div>
+          <div style={{ color: "black", fontWeight: 'bolder', fontSize: "20px" }}>Tổng tiền: {showTotalAmount(cart)}$</div>
+          <div> <Link to={'/cart'} className="nav-link" style={{position:'relative'}}>
+            <i className="fa fa-shopping-cart" style={{fontSize:'26px'}}></i>
+            <span className="quantity">{showTotalAmountQuantity(cart)}</span>
+          </Link>
+          </div>
         </div>
       </nav>
     </header>

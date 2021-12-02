@@ -9,6 +9,15 @@ const showTotalAmount = (cart) => {
   }
   return total;
 };
+export const showTotalAmountQuantity = (cart) => {
+  var total = 0;
+  if (cart.length > 0) {
+    for (var i = 0; i < cart.length; i++){
+      total += cart[i].quantity;
+    }
+  }
+  return total;
+}
 function CartResult(props) {
   const { cart } = props;
   return (
